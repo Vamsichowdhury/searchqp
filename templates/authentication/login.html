@@ -1,0 +1,44 @@
+{% extends "authentication/base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>forms</title>
+</head>
+<body>
+<br><br>
+<!--TODO: ADD ALERT MESSAGE IF SUCCESSFULLY REGISTERS-->
+    <div class="form col-md-4 offset-md-4">
+        <form method="post">
+            {% csrf_token %}
+
+
+                <div class="jumbotron">
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                 <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+                            {% endfor %}
+                         </ul>
+                    {% endif %}
+                    <div class="register">
+                        <h4 class="display-8 text-center">Login</h4>
+                        <br>
+                    </div>
+                    <hr class="my-4">
+                        <div class="form-group">
+                                <input type="text" class="form-control" name="username" placeholder="Username(Reg.No)">
+                        </div>
+                        <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                    <button type="submit" class="btn btn-outline-secondary btn-lg btn-block">Login</button>
+                </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
+{% endblock %}

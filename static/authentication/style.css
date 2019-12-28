@@ -1,0 +1,15 @@
+.register {
+	background-color: #3dc7df;
+}
+
+.form {
+
+opacity: 0.95;
+filter: alpha(opacity=95); /* For IE8 and earlier */
+
+}
+
+body {
+  background: #61e1ed;
+
+}
