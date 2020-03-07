@@ -1,0 +1,9 @@
+{% include 'authentication/base.html' %}
+{% block content %}
+<h1>Delete</h1>
+<form action="" method="post">
+    {% csrf_token %}
+<p>Are you sure you want to delete?</p>
+<button class="btn btn-danger ml-􀇑" type="submit">Confirm</button>
+</form>
+{% endblock content %}

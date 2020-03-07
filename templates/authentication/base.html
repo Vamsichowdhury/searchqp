@@ -16,7 +16,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{% url 'home' %}">searchQp</a>
+  <a class="navbar-brand" href="{% url 'authentication:home' %}">searchQp</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,17 +24,21 @@
     <ul class="navbar-nav">
         {% if user.is_authenticated %}
                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    <a class="nav-link" href="{% url 'authentication:logout' %}">Logout</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Profile-{{ user.get_full_name }}</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'searchqpapp:branch-list' %}">Branch</a>
+                </li>
+
         {% else %}
             <li class="nav-item active">
-                <a class="nav-link" href="{% url 'register' %}">Register<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'authentication:register' %}">Register<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                <a class="nav-link" href="{% url 'authentication:login' %}">Login</a>
             </li>
         {% endif %}
     </ul>

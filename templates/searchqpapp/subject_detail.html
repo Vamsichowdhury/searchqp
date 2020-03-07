@@ -1,0 +1,18 @@
+{% include 'authentication/base.html' %}
+
+{% block content %}
+
+<a href="{% url 'searchqpapp:subject-create-form' %}">Add question papers</a>
+{% if subjects.questionpaper_set.all %}
+    <ul>
+        {% for questionPaper in subjects.questionpaper_set.all %}
+        <li>{{ questionPaper.questionPaperModel }} {{ questionPaper.author }}{{ questionPaper.date }}</li>
+        <li><a href="{{ questionPaper.filePdfField.url }}">{{ questionPaper.filePdfField.url }}</a> </li>
+        <li><a href="{% url 'searchqpapp:delete-Question-paper' questionPaper.pk %}">delete</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>There are no question papers</h3>
+{% endif %}
+
+{% endblock %}

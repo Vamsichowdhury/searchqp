@@ -16,7 +16,7 @@ def register(request):
             form.save()                     # save user to database
             first_name = form.cleaned_data.get('first_name')
             messages.success(request, f'account is registered successfully for {first_name}!Login to the account')
-            return redirect("login")
+            return redirect("authentication:login")
     else:
         form = UserRegistrationForm()
 
@@ -32,14 +32,14 @@ def user_login(request):
             login(request, user)
             full_name = request.user.get_full_name()
             # messages.success(request, f'{full_name}!you are logged in successfully')
-            return redirect('home')
+            return redirect('authentication:home')
         else:
             messages.warning(request, "username or password is incorrect")
-            return redirect('login')    # if login failed return again to login page
+            return redirect('authentication:login')    # if login failed return again to login page
     return render(request, 'authentication/login.html')     # if method is GET
 
 
 def user_logout(request):
     logout(request)
     messages.info(request,'you are logged out')
-    return redirect('login')
+    return redirect('authentication:login')

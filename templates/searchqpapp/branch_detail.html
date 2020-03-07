@@ -1,0 +1,14 @@
+{% include 'authentication/base.html' %}
+
+{% block content %}
+{% if branches.subject_set.all %}
+    <ul>
+        {% for sub in branches.subject_set.all %}
+        <li><a href="{% url 'searchqpapp:subject-detail' sub.pk %}">{{ sub.subjectName }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>There are no subjects</h3>
+{% endif %}
+
+{% endblock %}

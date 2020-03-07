@@ -1,0 +1,13 @@
+{% include 'authentication/base.html' %}
+
+{% block content %}
+    {% if branches %}
+        <ul>
+            {% for branch in branches %}
+            <li><a href="{% url 'searchqpapp:branch-detail' branch.pk %}">{{ branch.branchName }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>There are no branches</h3>
+    {% endif %}
+{% endblock %}

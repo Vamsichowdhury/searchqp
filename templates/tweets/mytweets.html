@@ -1,0 +1,23 @@
+{% include "authentication/home.html" %}
+
+{%block content%}
+<a href="{% url 'tweets:tweetCreateForm' %}">post tweet</a>
+<div >
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                 <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+         </ul>
+    {% endif %}
+</div>
+{% if tweets %}
+     <ul>
+        {% for tweet in tweets %}
+         <li>{{ tweet.tweet }} {{ tweet.author }}<a href="{% url 'tweets:delete_tweets' tweet.pk %}">delete</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>There are no tweets </h3>
+{% endif %}
+{% endblock %}

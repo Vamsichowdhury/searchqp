@@ -1,0 +1,32 @@
+
+{% include "authentication/base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>forms</title>
+</head>
+<body>
+<br><br>
+<!--TODO: ADD ALERT MESSAGE IF SUCCESSFULLY REGISTERS-->
+    <div class="form col-md-4 offset-md-4">
+        <form method="post">
+            {% csrf_token %}
+
+                <div class="jumbotron">
+                    <div class="register">
+                        <h4 class="display-8 text-center">Post Tweet</h4>
+                        <br>
+                    </div>
+                    <hr class="my-4">
+                        {{ form.as_p}}
+                    <button type="submit" class="btn btn-outline-secondary btn-lg btn-block">submit</button>
+                </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
+{% endblock %}
